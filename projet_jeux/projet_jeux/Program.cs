@@ -12,6 +12,11 @@ namespace ProjetNumber5
         string ordchoice;
         Random random = new Random();
         bool rejoue = true;
+        string[] Fruits;
+        int devine;
+        int i;
+        string selectmot;
+
 
         static void Main(string[] args)
         {
@@ -37,7 +42,7 @@ namespace ProjetNumber5
                     break;
 
                 case "2":
-
+                    liste();
                     break;
 
                 case "3":
@@ -86,14 +91,14 @@ namespace ProjetNumber5
             Console.WriteLine("J'ai déja choisis mon élément! A votre tour de choisir l'élément: ");
             userchoice = Console.ReadLine();
 
-              if (userchoice == "roche" || userchoice == "papier" || userchoice == "ciseau" )
-              {
+            if (userchoice == "roche" || userchoice == "papier" || userchoice == "ciseau")
+            {
                 Choixauto();
                 rejouer();
-              }
+            }
 
-              else
-              {
+            else
+            {
                 Console.WriteLine("Votre choix est invalide, veuillez le saisir a nouveau:");
                 userchoice = Console.ReadLine();
 
@@ -102,14 +107,14 @@ namespace ProjetNumber5
                     Choixauto();
                     rejouer();
                 }
-              }
-              return;
-            
+            }
+            return;
+
         }
 
         private void playerchoice2()
         {
-            
+
             Console.WriteLine("J'ai déja choisis mon élément! A votre tour de choisir l'élément: ");
             userchoice = Console.ReadLine();
 
@@ -189,7 +194,7 @@ namespace ProjetNumber5
             {
                 perdu();
             }
-           
+
         }
         private void papier()
         {
@@ -225,8 +230,8 @@ namespace ProjetNumber5
             {
                 Pnull();
             }
-           
-      
+
+
         }
 
         private void rejouer()
@@ -234,13 +239,13 @@ namespace ProjetNumber5
             Console.WriteLine("Voulez-vous refaire une partie (O/N) ? ");
             char rejoue = Console.ReadKey().KeyChar;
 
-            if (rejoue=='N' || rejoue =='n')
+            if (rejoue == 'N' || rejoue == 'n')
             {
                 Console.WriteLine();
                 selectChoice();
-                
+
             }
-            else if (rejoue=='O' || rejoue == 'o')
+            else if (rejoue == 'O' || rejoue == 'o')
             {
                 Console.WriteLine();
                 playerchoice2();
@@ -252,6 +257,62 @@ namespace ProjetNumber5
 
             }
         }
+
+        private void liste()
+        {
+            devine = random.Next(0, 9);
+            Fruits = new string[] { "banane","poire", "pomme",
+                                    "cerise","mangue", "figue",
+                                    "trangerine", "fraise", "bleuet"};
+             selectmot = Fruits[devine];
+
+            // Console.WriteLine(selectmot);
+            
+
+           char[] charArray = selectmot.ToCharArray();
+
+             int devinelettre = random.Next(0, 10);
+            
+            char selectlettre = charArray[devinelettre];
+
+            Console.WriteLine(selectlettre);
+
+            char changelettre;
+
+           
+        
+
+        }
+
+        private void lettreshazard()
+        {
+
+            
+
+            //char rep = Convert.ToChar(Console.ReadLine());
+            //liste();
+            //int i;
+            //for (i = 0; i < Fruits.Length; ++i)
+            //{
+            //    if (Fruits[i]!="")
+            //    {
+            //        random.Next(1, 6);
+            //        Fruits[i] = Fruits[i].Replace();
+
+            //    }
+            //}
+            //Console.WriteLine(Fruits[i]);
+        }
+
+        private void affichedevinette()
+        {
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("Bienvenue dans la devinette");
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.Write("FRUIT A TROUVER: ");
+        }
+       
+
 
     }
 }
