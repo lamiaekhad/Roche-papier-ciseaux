@@ -11,20 +11,19 @@ namespace ProjetNumber5
         string userchoice;
         string ordchoice;
         Random random = new Random();
-        bool rejoue = true;
         string[] Fruits;
-        int devine;
-        int i;
         string selectmot;
-
+        char[] charArray;
+        string mot;
 
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Program program = new Program();
             program.selectChoice();
-
         }
+
+        //Menu
         private void showMenu()
         {
             Console.WriteLine("-----------------------------------------------------------");
@@ -42,7 +41,7 @@ namespace ProjetNumber5
                     break;
 
                 case "2":
-                    liste();
+                    enssemble();
                     break;
 
                 case "3":
@@ -53,7 +52,6 @@ namespace ProjetNumber5
                     choixNV();
                     break;
             }
-
         }
         private void choixNV()
         {
@@ -77,12 +75,12 @@ namespace ProjetNumber5
             Environment.Exit(0);
         }
 
+        //roche/papier/ciseau
         private void accueilJ1()
         {
             Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine("Bienvenue dans le jeu roche/papier/ciseau");
             Console.WriteLine("-----------------------------------------------------------");
-
         }
 
         private void playerchoice()
@@ -96,7 +94,6 @@ namespace ProjetNumber5
                 Choixauto();
                 rejouer();
             }
-
             else
             {
                 Console.WriteLine("Votre choix est invalide, veuillez le saisir a nouveau:");
@@ -109,7 +106,6 @@ namespace ProjetNumber5
                 }
             }
             return;
-
         }
 
         private void playerchoice2()
@@ -136,7 +132,6 @@ namespace ProjetNumber5
                 }
             }
             return;
-
         }
 
 
@@ -175,7 +170,6 @@ namespace ProjetNumber5
         {
             Console.WriteLine("Votre choix est " + userchoice + " et mon choix est " + ordchoice + ". Je gagne la partie");
             Console.WriteLine();
-
         }
 
         private void roche()
@@ -194,7 +188,6 @@ namespace ProjetNumber5
             {
                 perdu();
             }
-
         }
         private void papier()
         {
@@ -213,7 +206,6 @@ namespace ProjetNumber5
                 gagne();
             }
         }
-
         private void ciseau()
         {
             ordchoice = "ciseau";
@@ -230,10 +222,7 @@ namespace ProjetNumber5
             {
                 Pnull();
             }
-
-
         }
-
         private void rejouer()
         {
             Console.WriteLine("Voulez-vous refaire une partie (O/N) ? ");
@@ -243,7 +232,6 @@ namespace ProjetNumber5
             {
                 Console.WriteLine();
                 selectChoice();
-
             }
             else if (rejoue == 'O' || rejoue == 'o')
             {
@@ -254,65 +242,101 @@ namespace ProjetNumber5
             {
                 Console.ReadLine();
                 rejouer();
-
             }
         }
 
-        private void liste()
-        {
-            devine = random.Next(0, 9);
-            Fruits = new string[] { "banane","poire", "pomme",
-                                    "cerise","mangue", "figue",
-                                    "trangerine", "fraise", "bleuet"};
-             selectmot = Fruits[devine];
-
-            // Console.WriteLine(selectmot);
-            
-
-           char[] charArray = selectmot.ToCharArray();
-
-             int devinelettre = random.Next(0, 10);
-            
-            char selectlettre = charArray[devinelettre];
-
-            Console.WriteLine(selectlettre);
-
-            char changelettre;
-
-           
-        
-
-        }
-
-        private void lettreshazard()
-        {
-
-            
-
-            //char rep = Convert.ToChar(Console.ReadLine());
-            //liste();
-            //int i;
-            //for (i = 0; i < Fruits.Length; ++i)
-            //{
-            //    if (Fruits[i]!="")
-            //    {
-            //        random.Next(1, 6);
-            //        Fruits[i] = Fruits[i].Replace();
-
-            //    }
-            //}
-            //Console.WriteLine(Fruits[i]);
-        }
-
+        //Devinette
         private void affichedevinette()
         {
             Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine("Bienvenue dans la devinette");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.Write("FRUIT A TROUVER: ");
-        }
-       
 
+        }
+        private void mothasard()
+        {
+            int devine;
+
+            devine = random.Next(0, 9);
+            Fruits = new string[] { "banane","poire", "pomme",
+                                    "cerise","mangue", "figue",
+                                    "trangerine", "fraise", "bleuet"};
+            selectmot = Fruits[devine];
+        }
+        
+        private void lettrehasard()
+        {
+            var devinelettre = 0;
+            char selectlettre1;
+            char selectlettre2;
+            char selectlettre3;
+
+            charArray = selectmot.ToCharArray();
+            
+            devinelettre = (random.Next(0, selectmot.Length));
+            selectlettre1 = charArray[devinelettre];
+
+            do
+            {
+                devinelettre = (random.Next(0, selectmot.Length));
+                selectlettre2 = charArray[devinelettre];
+
+            } while (selectlettre1 == selectlettre2);
+
+            do
+            {
+                devinelettre = (random.Next(0, selectmot.Length));
+                selectlettre3 = charArray[devinelettre];
+
+            } while (selectlettre1 == selectlettre3 || selectlettre2 == selectlettre3);
+
+                mot = selectmot.Replace(selectlettre1, '_').Replace(selectlettre2, '_').Replace(selectlettre3, '_');
+              
+        }
+
+        private void devinette()
+        {
+            string yourguess = " ";
+            int guesstime = 0;
+            int guesslimit = 3;
+            bool outofguess = false;
+
+            while (yourguess != selectmot && !outofguess)
+            {
+
+                if (guesstime < guesslimit)
+                {
+                    Console.WriteLine("FRUIT A TROUVER: " + mot );
+                    yourguess = Console.ReadLine();
+                    guesstime++;
+                }
+                else
+                {
+                    outofguess = true;
+                }
+            }
+
+            if (yourguess == selectmot || !outofguess)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Bravo! vous avez trouvé le mot!");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("le mot était : " + selectmot);
+                Console.WriteLine();
+
+            }
+        }
+        private void enssemble()
+        {
+            affichedevinette();
+            mothasard();
+            lettrehasard();
+            devinette();
+        }
 
     }
 }
