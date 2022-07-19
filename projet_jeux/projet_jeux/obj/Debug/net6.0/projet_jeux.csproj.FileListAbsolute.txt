@@ -1,0 +1,15 @@
+C:\depo\projet_3\projet_jeux\projet_jeux\bin\Debug\net6.0\projet_jeux.exe
+C:\depo\projet_3\projet_jeux\projet_jeux\bin\Debug\net6.0\projet_jeux.deps.json
+C:\depo\projet_3\projet_jeux\projet_jeux\bin\Debug\net6.0\projet_jeux.runtimeconfig.json
+C:\depo\projet_3\projet_jeux\projet_jeux\bin\Debug\net6.0\projet_jeux.dll
+C:\depo\projet_3\projet_jeux\projet_jeux\bin\Debug\net6.0\projet_jeux.pdb
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.csproj.AssemblyReference.cache
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.GeneratedMSBuildEditorConfig.editorconfig
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.AssemblyInfoInputs.cache
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.AssemblyInfo.cs
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.csproj.CoreCompileInputs.cache
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.dll
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\refint\projet_jeux.dll
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.pdb
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\projet_jeux.genruntimeconfig.cache
+C:\depo\projet_3\projet_jeux\projet_jeux\obj\Debug\net6.0\ref\projet_jeux.dll
